@@ -1,0 +1,10 @@
+<div class="home-page">
+    <button routerLink="/upload">Upload New Analysis</button>
+
+    <h3>Previous Image Analyses</h3>
+    <ul>
+        <li *ngFor="let analysis of analyses">
+        {{ analysis.name }} – {{ analysis.date | date }}
+        </li>
+    </ul>
+</div>
