@@ -1,6 +1,6 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PatientService, Patient } from '../../services/patient.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -24,13 +24,16 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['oib', 'firstName', 'lastName', 'dateOfBirth', 'email'];
   dataSource = new MatTableDataSource<Patient>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private patientService: PatientService) {}
+  constructor(
+    private patientService: PatientService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.patientService.getPatients().subscribe((patients) => {
@@ -45,5 +48,9 @@ export class HomeComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onPatientClick(patient: Patient) {
+    this.router.navigate(['/patient', patient.id]);
   }
 }
