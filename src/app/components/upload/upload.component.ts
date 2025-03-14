@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UploadService } from '../services/upload.service';
+import { UploadService } from '../../services/upload.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
