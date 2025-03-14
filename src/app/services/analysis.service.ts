@@ -27,7 +27,7 @@ export class AnalysisService {
    * Retrieves a list of previous analyses.
    * @returns Observable<Analysis[]> - a stream of analysis records.
    */
-  getPreviousAnalyses(): Observable<Analysis[]> {
+  getAnalyses(): Observable<Analysis[]> {
     // return this.http.get<Analysis[]>(this.baseUrl);
     return of(this.dummyAnalyses);
   }

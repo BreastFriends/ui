@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private analysisService: AnalysisService) {}
 
   ngOnInit(): void {
-    this.analysisService.getPreviousAnalyses().subscribe(data => {
+    this.analysisService.getAnalyses().subscribe(data => {
       this.analyses = data;
     });
   }
