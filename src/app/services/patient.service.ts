@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 export interface Patient {
+  id: string;
   oib: string;
   firstName: string;
   lastName: string;
@@ -25,6 +26,7 @@ export class PatientService {
   // Static dummy placeholder data
   private dummyPatients: Patient[] = [
     {
+      id: '1',
       oib: '12345678901',
       firstName: 'Alice',
       lastName: 'Smith',
@@ -40,6 +42,7 @@ export class PatientService {
       updatedAt: new Date()
     },
     {
+      id: '2',
       oib: '09876543210',
       firstName: 'Maria',
       lastName: 'Johnson',
@@ -55,6 +58,7 @@ export class PatientService {
       updatedAt: new Date()
     },
     {
+      id: '3',
       oib: '11223344556',
       firstName: 'Laura',
       lastName: 'Brown',
