@@ -18,13 +18,10 @@
     <h2>Analyses</h2>
 
     <!-- Search Input -->
-    <div class="search-container">
-        <mat-form-field appearance="outline">
-            <mat-label>Search Analyses</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mammography">
-        </mat-form-field>
-    </div>
-
+    <mat-form-field appearance="outline">
+        <mat-label>Search Analyses</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mammography">
+    </mat-form-field>
 
     <!-- Paginated Table -->
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
