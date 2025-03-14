@@ -1,10 +1,43 @@
 <div class="home-page">
-    <button routerLink="/upload">Upload New Analysis</button>
+    <button routerLink="/upload" mat-raised-button color="primary">Upload New Analysis</button>
 
-    <h3>Previous Image Analyses</h3>
-    <ul>
-        <li *ngFor="let analysis of analyses">
-        {{ analysis.name }} – {{ analysis.date | date }}
-        </li>
-    </ul>
+    <h3>Patients</h3>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filter patients">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="oib">
+            <th mat-header-cell *matHeaderCellDef> OIB </th>
+            <td mat-cell *matCellDef="let patient"> {{ patient.oib }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let patient"> {{ patient.firstName }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td mat-cell *matCellDef="let patient"> {{ patient.lastName }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dateOfBirth">
+            <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+            <td mat-cell *matCellDef="let patient"> {{ patient.dateOfBirth | date }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let patient"> {{ patient.email }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
 </div>
