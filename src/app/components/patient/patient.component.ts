@@ -10,6 +10,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-patient',
@@ -33,13 +34,17 @@ export class PatientComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
+    private route: ActivatedRoute,
     private patientService: PatientService,
     private analysisService: AnalysisService
   ) { }
 
   ngOnInit(): void {
+    const patientId = this.route.snapshot.paramMap.get('id');
     this.patientService.getPatients().subscribe(patients => {
-      this.patient = patients[0];
+      this.patient = patientId
+        ? patients.find(p => p.id === patientId)
+        : patients[0];
     });
 
     this.analysisService.getAnalyses().subscribe(analyses => {
