@@ -1,10 +1,12 @@
 <div class="home-page">
     <h3>Patients</h3>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Filter patients">
-    </mat-form-field>
+    <div class="centered-search">
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Filter patients">
+        </mat-form-field>
+    </div>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
