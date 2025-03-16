@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { PatientService, Patient } from '../../services/patient.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -14,7 +14,6 @@ import { MatTableDataSource } from '@angular/material/table';
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
