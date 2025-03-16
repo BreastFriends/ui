@@ -31,6 +31,15 @@
         </ul>
     </div>
 
+    <!-- Analysis Information -->
+    <div class="analysis-info">
+        <h3>Analysis Information</h3>
+        <p><strong>BIRADS Score:</strong> {{ analysis.birads_score }}</p>
+        <p><strong>BIRADS Confidence:</strong> {{ analysis.birads_confidence | percent:'1.0-0' }}</p>
+        <p><strong>Radiologist BIRADS Score:</strong> {{ analysis.radiologist_birads_score }}</p>
+        <p><strong>Created At:</strong> {{ analysis.created_at | date:'medium' }}</p>
+    </div>
+
     <!-- Doctor's Notes -->
     <div class="notes-section" *ngIf="analysis.notes">
         <h3>Doctor's Notes</h3>
