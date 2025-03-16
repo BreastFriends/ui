@@ -1,1 +1,28 @@
-<p>analysis works!</p>
+<div class="analysis-container" *ngIf="analysis">
+    <!-- Images -->
+    <div class="images-section">
+        <div class="image-item" *ngFor="let image of analysis.images">
+            <img [src]="image.image_uri" [alt]="image.view_type + ' ' + image.breast_side" />
+            <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+        </div>
+    </div>
+
+    <!-- Lesions -->
+    <div class="lesions-section" *ngIf="analysis.lesions && analysis.lesions.length">
+        <h3>Detected Lesions</h3>
+        <ul>
+            <li *ngFor="let lesion of analysis.lesions">
+                <strong>{{ lesion.lesion_type }}</strong>
+                ({{ lesion.confidence * 100 | number:'1.0-0' }}% confidence) –
+                Dimensions: {{ lesion.width_mm }}mm x {{ lesion.height_mm }}mm, Area: {{ lesion.area_pixels }} pixels.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Doctor's Notes -->
+    <div class="notes-section" *ngIf="analysis.notes">
+        <h3>Doctor's Notes</h3>
+        <p>{{ analysis.notes }}</p>
+    </div>
+
+</div>

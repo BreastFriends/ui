@@ -29,7 +29,7 @@ export interface AnalysisLesion {
 }
 
 export interface Analysis {
-  analysis_id: string;
+  id: string;
   started_at: Date;
   finished_at: Date;
   duration_time_ms: number;
@@ -58,7 +58,7 @@ export class AnalysisService {
   // Dummy placeholder data using the new schema.
   private dummyAnalyses: Analysis[] = [
     {
-      analysis_id: '1',
+      id: '1',
       started_at: new Date('2025-02-01T08:00:00'),
       finished_at: new Date('2025-02-01T08:30:00'),
       duration_time_ms: 1800000,
@@ -135,7 +135,7 @@ export class AnalysisService {
       ]
     },
     {
-      analysis_id: '2',
+      id: '2',
       started_at: new Date('2025-02-05T09:00:00'),
       finished_at: new Date('2025-02-05T09:25:00'),
       duration_time_ms: 1500000,
@@ -214,7 +214,7 @@ export class AnalysisService {
    * @returns Observable<Analysis> - a stream with the analysis record.
    */
   getAnalysisById(analysisId: string): Observable<Analysis | undefined> {
-    const analysis = this.dummyAnalyses.find(a => a.analysis_id === analysisId);
+    const analysis = this.dummyAnalyses.find(a => a.id === analysisId);
     return of(analysis);
   }
 }

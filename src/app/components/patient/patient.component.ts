@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient',
@@ -27,7 +28,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PatientComponent implements OnInit, AfterViewInit {
   patient: Patient | undefined;
-  displayedColumns: string[] = ['id', 'name', 'date'];
+  displayedColumns: string[] = ['id', 'birads_score', 'radiologist_birads_score', 'created_at'];
   dataSource: MatTableDataSource<Analysis> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -36,7 +37,8 @@ export class PatientComponent implements OnInit, AfterViewInit {
   constructor(
     private route: ActivatedRoute,
     private patientService: PatientService,
-    private analysisService: AnalysisService
+    private analysisService: AnalysisService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -60,5 +62,11 @@ export class PatientComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onAnalysisClick(analysis: Analysis): void {
+    if (this.patient) {
+      this.router.navigate(['/patient', this.patient.id, 'analysis', analysis.id]);
+    }
   }
 }
