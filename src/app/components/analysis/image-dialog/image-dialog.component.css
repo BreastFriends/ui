@@ -1,0 +1,9 @@
+.dialog-container {
+    text-align: center;
+    overflow: hidden;
+}
+.dialog-image {
+    width: 100%;
+    max-width: 800px;
+    transition: transform 0.2s;
+}

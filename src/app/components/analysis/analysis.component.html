@@ -4,7 +4,12 @@
         <mat-tab label="Left">
             <div class="images-section">
                 <div class="image-item" *ngFor="let image of leftImages">
-                    <img [src]="image.image_uri" [alt]="image.view_type + ' ' + image.breast_side" />
+                    <img
+                    [src]="image.image_uri"
+                    [alt]="image.view_type + ' ' + image.breast_side"
+                    (click)="openImageDialog(image)"
+                    style="cursor: pointer;"
+                    />
                     <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                 </div>
             </div>
@@ -12,7 +17,12 @@
         <mat-tab label="Right">
             <div class="images-section">
                 <div class="image-item" *ngFor="let image of rightImages">
-                    <img [src]="image.image_uri" [alt]="image.view_type + ' ' + image.breast_side" />
+                    <img
+                    [src]="image.image_uri"
+                    [alt]="image.view_type + ' ' + image.breast_side"
+                    (click)="openImageDialog(image)"
+                    style="cursor: pointer;"
+                    />
                     <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                 </div>
             </div>

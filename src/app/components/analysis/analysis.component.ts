@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
 @Component({
   selector: 'app-analysis',
@@ -21,7 +23,8 @@ export class AnalysisComponent implements OnInit {
     private analysisService: AnalysisService,
     private route: ActivatedRoute,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -51,5 +54,13 @@ export class AnalysisComponent implements OnInit {
         this.router.navigate(['/']);
       }
     }
+  }
+
+  openImageDialog(image: AnalysisImage): void {
+    this.dialog.open(ImageDialogComponent, {
+      data: image,
+      width: '90%',
+      maxWidth: '800px'
+    });
   }
 }
