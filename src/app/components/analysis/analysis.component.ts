@@ -30,7 +30,7 @@ export class AnalysisComponent implements OnInit {
 
     if (analysisId) {
       this.analysisService.getAnalysisById(analysisId).subscribe(analysis => {
-        if (analysis) {
+        if (analysis && analysis.patientId === patientId) {
           this.analysis = analysis;
           this.leftImages = analysis.images.filter(img => img.breast_side === 'L');
           this.rightImages = analysis.images.filter(img => img.breast_side === 'R');
