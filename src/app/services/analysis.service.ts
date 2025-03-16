@@ -78,7 +78,7 @@ export class AnalysisService {
           view_type: 'CC',
           breast_side: 'L',
           acquisition_timestamp: new Date('2025-02-01T07:55:00'),
-          image_uri: 'assets/images/analysis1/L_CC.jpg',
+          image_uri: 'assets/analysis/1/1_MG_L_CC_ANON.jpg',
           created_at: new Date('2025-02-01T08:00:00'),
           pixel_spacing_x: 0.1,
           pixel_spacing_y: 0.1
@@ -89,7 +89,7 @@ export class AnalysisService {
           view_type: 'MLO',
           breast_side: 'L',
           acquisition_timestamp: new Date('2025-02-01T07:56:00'),
-          image_uri: 'assets/images/analysis1/L_MLO.jpg',
+          image_uri: 'assets/analysis/1/1_MG_L_ML_ANON.jpg',
           created_at: new Date('2025-02-01T08:00:00'),
           pixel_spacing_x: 0.1,
           pixel_spacing_y: 0.1
@@ -100,7 +100,7 @@ export class AnalysisService {
           view_type: 'CC',
           breast_side: 'R',
           acquisition_timestamp: new Date('2025-02-01T07:57:00'),
-          image_uri: 'assets/images/analysis1/R_CC.jpg',
+          image_uri: 'assets/analysis/1/1_MG_R_CC_ANON.jpg',
           created_at: new Date('2025-02-01T08:00:00'),
           pixel_spacing_x: 0.1,
           pixel_spacing_y: 0.1
@@ -111,7 +111,7 @@ export class AnalysisService {
           view_type: 'MLO',
           breast_side: 'R',
           acquisition_timestamp: new Date('2025-02-01T07:58:00'),
-          image_uri: 'assets/images/analysis1/R_MLO.jpg',
+          image_uri: 'assets/analysis/1/1_MG_R_ML_ANON.jpg',
           created_at: new Date('2025-02-01T08:00:00'),
           pixel_spacing_x: 0.1,
           pixel_spacing_y: 0.1
@@ -156,7 +156,7 @@ export class AnalysisService {
           view_type: 'CC',
           breast_side: 'L',
           acquisition_timestamp: new Date('2025-02-05T08:55:00'),
-          image_uri: 'assets/images/analysis2/L_CC.jpg',
+          image_uri: 'assets/analysis/2/1_MG_L_CC_ANON.jpg',
           created_at: new Date('2025-02-05T09:00:00'),
           pixel_spacing_x: 0.1,
           pixel_spacing_y: 0.1
@@ -167,7 +167,7 @@ export class AnalysisService {
           view_type: 'MLO',
           breast_side: 'L',
           acquisition_timestamp: new Date('2025-02-05T08:56:00'),
-          image_uri: 'assets/images/analysis2/L_MLO.jpg',
+          image_uri: 'assets/analysis/2/1_MG_L_ML_ANON.jpg',
           created_at: new Date('2025-02-05T09:00:00'),
           pixel_spacing_x: 0.1,
           pixel_spacing_y: 0.1
@@ -178,7 +178,7 @@ export class AnalysisService {
           view_type: 'CC',
           breast_side: 'R',
           acquisition_timestamp: new Date('2025-02-05T08:57:00'),
-          image_uri: 'assets/images/analysis2/R_CC.jpg',
+          image_uri: 'assets/analysis/2/1_MG_R_CC_ANON.jpg',
           created_at: new Date('2025-02-05T09:00:00'),
           pixel_spacing_x: 0.1,
           pixel_spacing_y: 0.1
@@ -189,7 +189,7 @@ export class AnalysisService {
           view_type: 'MLO',
           breast_side: 'R',
           acquisition_timestamp: new Date('2025-02-05T08:58:00'),
-          image_uri: 'assets/images/analysis2/R_MLO.jpg',
+          image_uri: 'assets/analysis/2/1_MG_R_ML_ANON.jpg',
           created_at: new Date('2025-02-05T09:00:00'),
           pixel_spacing_x: 0.1,
           pixel_spacing_y: 0.1
