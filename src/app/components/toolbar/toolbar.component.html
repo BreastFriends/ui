@@ -1,5 +1,10 @@
 <mat-toolbar color="primary">
-    <span>Breast Friends UI</span>
+    <button mat-button routerLink="/" class="app-name-button">Breast Friends UI</button>
+    <button mat-icon-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-icon-button (click)="goForward()">
+        <mat-icon>arrow_forward</mat-icon>
+    </button>
     <span class="spacer"></span>
-    <button mat-button routerLink="/">Home</button>
 </mat-toolbar>
