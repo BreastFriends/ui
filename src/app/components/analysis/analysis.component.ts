@@ -22,7 +22,7 @@ export class AnalysisComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const analysisId = this.route.snapshot.paramMap.get('id');
+    const analysisId = this.route.snapshot.paramMap.get('analysisId');
     if (analysisId) {
       this.analysisService.getAnalysisById(analysisId).subscribe((analysis) => {
         this.analysis = analysis;

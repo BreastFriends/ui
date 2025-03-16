@@ -42,7 +42,7 @@ export class PatientComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    const patientId = this.route.snapshot.paramMap.get('id');
+    const patientId = this.route.snapshot.paramMap.get('patientId');
     this.patientService.getPatients().subscribe(patients => {
       this.patient = patientId
         ? patients.find(p => p.id === patientId)
