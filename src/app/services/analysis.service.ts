@@ -52,9 +52,6 @@ export interface Analysis {
   providedIn: 'root'
 })
 export class AnalysisService {
-  private baseUrl = '/api/analyses';
-
-  constructor(private http: HttpClient) {}
 
   // Dummy placeholder data using the new schema.
   private dummyAnalyses: Analysis[] = [
