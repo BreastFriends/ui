@@ -1,11 +1,23 @@
 <div class="analysis-container" *ngIf="analysis">
-    <!-- Images -->
-    <div class="images-section">
-        <div class="image-item" *ngFor="let image of analysis.images">
-            <img [src]="image.image_uri" [alt]="image.view_type + ' ' + image.breast_side" />
-            <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
-        </div>
-    </div>
+    <!-- Images in Tabs -->
+    <mat-tab-group>
+        <mat-tab label="Left">
+            <div class="images-section">
+                <div class="image-item" *ngFor="let image of leftImages">
+                    <img [src]="image.image_uri" [alt]="image.view_type + ' ' + image.breast_side" />
+                    <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Right">
+            <div class="images-section">
+                <div class="image-item" *ngFor="let image of rightImages">
+                    <img [src]="image.image_uri" [alt]="image.view_type + ' ' + image.breast_side" />
+                    <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 
     <!-- Lesions -->
     <div class="lesions-section" *ngIf="analysis.lesions && analysis.lesions.length">
@@ -24,5 +36,4 @@
         <h3>Doctor's Notes</h3>
         <p>{{ analysis.notes }}</p>
     </div>
-
 </div>
