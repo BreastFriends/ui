@@ -30,6 +30,7 @@ export interface AnalysisLesion {
 
 export interface Analysis {
   id: string;
+  patientId: string;
   started_at: Date;
   finished_at: Date;
   duration_time_ms: number;
@@ -59,6 +60,7 @@ export class AnalysisService {
   private dummyAnalyses: Analysis[] = [
     {
       id: '1',
+      patientId: '1',
       started_at: new Date('2025-02-01T08:00:00'),
       finished_at: new Date('2025-02-01T08:30:00'),
       duration_time_ms: 1800000,
@@ -136,6 +138,7 @@ export class AnalysisService {
     },
     {
       id: '2',
+      patientId: '2',
       started_at: new Date('2025-02-05T09:00:00'),
       finished_at: new Date('2025-02-05T09:25:00'),
       duration_time_ms: 1500000,
@@ -216,5 +219,15 @@ export class AnalysisService {
   getAnalysisById(analysisId: string): Observable<Analysis | undefined> {
     const analysis = this.dummyAnalyses.find(a => a.id === analysisId);
     return of(analysis);
+  }
+
+  /**
+ * Retrieves all analyses for a specific patient.
+ * @param patientId string - the patient ID to filter by.
+ * @returns Observable<Analysis[]> - a stream with the matching analyses.
+ */
+  getAnalysesByPatientId(patientId: string): Observable<Analysis[]> {
+    const analyses = this.dummyAnalyses.filter(a => a.patientId === patientId);
+    return of(analyses);
   }
 }

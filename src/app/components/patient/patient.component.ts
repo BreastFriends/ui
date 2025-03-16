@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-patient',
@@ -38,19 +39,28 @@ export class PatientComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private patientService: PatientService,
     private analysisService: AnalysisService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     const patientId = this.route.snapshot.paramMap.get('patientId');
     this.patientService.getPatients().subscribe(patients => {
-      this.patient = patientId
-        ? patients.find(p => p.id === patientId)
-        : patients[0];
-    });
-
-    this.analysisService.getAnalyses().subscribe(analyses => {
-      this.dataSource.data = analyses;
+      if (patientId) {
+        const found = patients.find(p => p.id === patientId);
+        if (found) {
+          this.patient = found;
+          this.analysisService.getAnalysesByPatientId(this.patient.id).subscribe(analyses => {
+            this.dataSource.data = analyses;
+          });
+        } else {
+          this.snackBar.open('Patient not found', 'Close', { duration: 3000 });
+          this.router.navigate(['/']);
+        }
+      } else {
+        this.snackBar.open('Patient ID not provided', 'Close', { duration: 3000 });
+        this.router.navigate(['/']);
+      }
     });
   }
 
