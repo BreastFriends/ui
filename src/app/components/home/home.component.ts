@@ -7,6 +7,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -18,7 +20,9 @@ import { MatTableDataSource } from '@angular/material/table';
     MatPaginatorModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatSortModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']

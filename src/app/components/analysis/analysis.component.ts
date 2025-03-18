@@ -6,11 +6,22 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageDialogComponent } from './image-dialog/image-dialog.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-analysis',
   standalone: true,
-  imports: [CommonModule, MatTabsModule],
+  imports: [
+    CommonModule,
+    MatTabsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule
+  ],
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.css']
 })

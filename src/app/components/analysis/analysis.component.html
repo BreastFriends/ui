@@ -1,58 +1,87 @@
 <div class="analysis-container" *ngIf="analysis">
-    <!-- Images in Tabs -->
-    <mat-tab-group>
-        <mat-tab label="Left">
-            <div class="images-section">
-                <div class="image-item" *ngFor="let image of leftImages">
-                    <img
-                    [src]="image.image_uri"
-                    [alt]="image.view_type + ' ' + image.breast_side"
-                    (click)="openImageDialog(image)"
-                    style="cursor: pointer;"
-                    />
-                    <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
-                </div>
-            </div>
-        </mat-tab>
-        <mat-tab label="Right">
-            <div class="images-section">
-                <div class="image-item" *ngFor="let image of rightImages">
-                    <img
-                    [src]="image.image_uri"
-                    [alt]="image.view_type + ' ' + image.breast_side"
-                    (click)="openImageDialog(image)"
-                    style="cursor: pointer;"
-                    />
-                    <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
-                </div>
-            </div>
-        </mat-tab>
-    </mat-tab-group>
 
-    <!-- Lesions -->
-    <div class="lesions-section" *ngIf="analysis.lesions && analysis.lesions.length">
-        <h3>Detected Lesions</h3>
-        <ul>
-            <li *ngFor="let lesion of analysis.lesions">
-                <strong>{{ lesion.lesion_type }}</strong>
-                ({{ lesion.confidence * 100 | number:'1.0-0' }}% confidence) –
-                Dimensions: {{ lesion.width_mm }}mm x {{ lesion.height_mm }}mm, Area: {{ lesion.area_pixels }} pixels.
-            </li>
-        </ul>
-    </div>
+    <!-- Images in Tabs -->
+    <mat-card class="images-card">
+        <mat-tab-group>
+            <mat-tab label="Left">
+                <div class="images-section">
+                    <div class="image-item" *ngFor="let image of leftImages">
+                        <img
+                            [src]="image.image_uri"
+                            [alt]="image.view_type + ' ' + image.breast_side"
+                            (click)="openImageDialog(image)"
+                            style="cursor: pointer;"
+                        />
+                        <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Right">
+                <div class="images-section">
+                    <div class="image-item" *ngFor="let image of rightImages">
+                        <img
+                            [src]="image.image_uri"
+                            [alt]="image.view_type + ' ' + image.breast_side"
+                            (click)="openImageDialog(image)"
+                            style="cursor: pointer;"
+                        />
+                        <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+
+    <!-- Detected Lesions -->
+    <mat-card class="lesions-card" *ngIf="analysis.lesions && analysis.lesions.length">
+        <mat-card-header>
+            <mat-card-title>Detected Lesions</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <ul>
+                <li *ngFor="let lesion of analysis.lesions">
+                    <strong>{{ lesion.lesion_type }}</strong>
+                    ({{ lesion.confidence * 100 | number:'1.0-0' }}% confidence) –
+                    Dimensions: {{ lesion.width_mm }}mm x {{ lesion.height_mm }}mm, Area: {{ lesion.area_pixels }} pixels.
+                </li>
+            </ul>
+        </mat-card-content>
+    </mat-card>
 
     <!-- Analysis Information -->
-    <div class="analysis-info">
-        <h3>Analysis Information</h3>
-        <p><strong>BIRADS Score:</strong> {{ analysis.birads_score }}</p>
-        <p><strong>BIRADS Confidence:</strong> {{ analysis.birads_confidence | percent:'1.0-0' }}</p>
-        <p><strong>Radiologist BIRADS Score:</strong> {{ analysis.radiologist_birads_score }}</p>
-        <p><strong>Created At:</strong> {{ analysis.created_at | date:'medium' }}</p>
-    </div>
+    <mat-card class="analysis-info-card">
+        <mat-card-header>
+            <mat-card-title>Analysis Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p><strong>BIRADS Score:</strong> {{ analysis.birads_score }}</p>
+            <p><strong>BIRADS Confidence:</strong> {{ analysis.birads_confidence | percent:'1.0-0' }}</p>
+            <p><strong>Created At:</strong> {{ analysis.created_at | date:'medium' }}</p>
+        </mat-card-content>
+    </mat-card>
+
+    <!-- Radiologist BIRADS Score -->
+    <mat-card class="radiologist-birads-card">
+        <mat-card-header>
+            <mat-card-title>Radiologist BIRADS Score</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <input matInput [(ngModel)]="analysis.radiologist_birads_score" placeholder="Enter Radiologist BIRADS Score">
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
 
     <!-- Doctor's Notes -->
-    <div class="notes-section" *ngIf="analysis.notes">
-        <h3>Doctor's Notes</h3>
-        <p>{{ analysis.notes }}</p>
-    </div>
+    <mat-card class="radiologist-notes-card">
+        <mat-card-header>
+            <mat-card-title>Doctor's Notes</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <textarea matInput rows="5" [(ngModel)]="analysis.notes" placeholder="Enter Doctor's Notes"></textarea>
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+
 </div>

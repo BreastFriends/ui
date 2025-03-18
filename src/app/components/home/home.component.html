@@ -1,44 +1,57 @@
-<div class="home-page">
-    <h3>Patients</h3>
+<mat-card class="home-card">
+    <mat-card-header>
+        <mat-card-title>Patients</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- Search Input Section -->
+        <div class="search-container" style="margin-bottom: 16px;">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Search patients</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search patients">
+            </mat-form-field>
+        </div>
 
-    <div class="centered-search">
-        <mat-form-field appearance="outline" class="search-field">
-            <mat-label>Search patients</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Search patients">
-        </mat-form-field>
-    </div>
+        <!-- Patients Table Section -->
+        <div class="table-container" style="overflow-x: auto;">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;">
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- OIB Column -->
+                <ng-container matColumnDef="oib">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> OIB </th>
+                    <td mat-cell *matCellDef="let patient"> {{ patient.oib }} </td>
+                </ng-container>
 
-        <ng-container matColumnDef="oib">
-            <th mat-header-cell *matHeaderCellDef> OIB </th>
-            <td mat-cell *matCellDef="let patient"> {{ patient.oib }} </td>
-        </ng-container>
+                <!-- First Name Column -->
+                <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                    <td mat-cell *matCellDef="let patient"> {{ patient.firstName }} </td>
+                </ng-container>
 
-        <ng-container matColumnDef="firstName">
-            <th mat-header-cell *matHeaderCellDef> First Name </th>
-            <td mat-cell *matCellDef="let patient"> {{ patient.firstName }} </td>
-        </ng-container>
+                <!-- Last Name Column -->
+                <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+                    <td mat-cell *matCellDef="let patient"> {{ patient.lastName }} </td>
+                </ng-container>
 
-        <ng-container matColumnDef="lastName">
-            <th mat-header-cell *matHeaderCellDef> Last Name </th>
-            <td mat-cell *matCellDef="let patient"> {{ patient.lastName }} </td>
-        </ng-container>
+                <!-- Date of Birth Column -->
+                <ng-container matColumnDef="dateOfBirth">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of Birth </th>
+                    <td mat-cell *matCellDef="let patient"> {{ patient.dateOfBirth | date:'mediumDate' }} </td>
+                </ng-container>
 
-        <ng-container matColumnDef="dateOfBirth">
-            <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
-            <td mat-cell *matCellDef="let patient"> {{ patient.dateOfBirth | date }} </td>
-        </ng-container>
+                <!-- Email Column -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                    <td mat-cell *matCellDef="let patient"> {{ patient.email }} </td>
+                </ng-container>
 
-        <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let patient"> {{ patient.email }} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onPatientClick(row)"></tr>
-    </table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
-</div>
+                <!-- Header and Row Declarations -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onPatientClick(row)"></tr>
+            </table>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+    </mat-card-actions>
+</mat-card>
