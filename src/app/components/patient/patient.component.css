@@ -1,0 +1,67 @@
+/* Patient Card Styling */
+.patient-card {
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid layout for patient details */
+.patient-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Individual patient detail styling */
+.patient-detail {
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 12px;
+  transition: background-color 0.3s;
+}
+
+.patient-detail:hover {
+  background-color: #f0f0f0;
+}
+
+/* Label and Value styles */
+.patient-detail .label {
+  font-weight: bold;
+  color: #424242;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.patient-detail .value {
+  font-size: 14px;
+  color: #616161;
+}
+
+/* Analyses Card Styling */
+.analyses-card {
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Input Section */
+.search-input {
+  margin-bottom: 16px;
+}
+
+.search-input mat-form-field {
+  width: 100%;
+}
+
+/* Analyses Table Container */
+.analyses-table {
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+/* Paginator Container */
+.paginator-container {
+  margin-top: 16px;
+}

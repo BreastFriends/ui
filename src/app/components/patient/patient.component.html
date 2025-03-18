@@ -4,16 +4,48 @@
     <mat-card-title>Patient Details</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p><strong>Name:</strong> {{ patient.firstName }} {{ patient.lastName }}</p>
-    <p><strong>OIB:</strong> {{ patient.oib }}</p>
-    <p><strong>Date of Birth:</strong> {{ patient.dateOfBirth | date:'mediumDate' }}</p>
-    <p><strong>Address:</strong> {{ patient.address }}</p>
-    <p><strong>Contact Phone:</strong> {{ patient.contactPhone }}</p>
-    <p><strong>Email:</strong> {{ patient.email }}</p>
-    <p><strong>Uses Hormone Therapy:</strong> {{ patient.usesHormoneTherapy ? 'Yes' : 'No' }}</p>
-    <p><strong>Family History of Cancer:</strong> {{ patient.hasFamilyHistoryOfCancer ? 'Yes' : 'No' }}</p>
-    <p><strong>Had Cancer:</strong> {{ patient.hasHadCancer ? 'Yes' : 'No' }}</p>
-    <p><strong>In Menopause:</strong> {{ patient.isInMenopause ? 'Yes' : 'No' }}</p>
+    <div class="patient-details-grid">
+      <div class="patient-detail">
+        <span class="label">Name:</span>
+        <span class="value">{{ patient.firstName }} {{ patient.lastName }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">OIB:</span>
+        <span class="value">{{ patient.oib }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">Date of Birth:</span>
+        <span class="value">{{ patient.dateOfBirth | date:'mediumDate' }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">Address:</span>
+        <span class="value">{{ patient.address }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">Contact Phone:</span>
+        <span class="value">{{ patient.contactPhone }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">Email:</span>
+        <span class="value">{{ patient.email }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">Uses Hormone Therapy:</span>
+        <span class="value">{{ patient.usesHormoneTherapy ? 'Yes' : 'No' }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">Family History of Cancer:</span>
+        <span class="value">{{ patient.hasFamilyHistoryOfCancer ? 'Yes' : 'No' }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">Had Cancer:</span>
+        <span class="value">{{ patient.hasHadCancer ? 'Yes' : 'No' }}</span>
+      </div>
+      <div class="patient-detail">
+        <span class="label">In Menopause:</span>
+        <span class="value">{{ patient.isInMenopause ? 'Yes' : 'No' }}</span>
+      </div>
+    </div>
   </mat-card-content>
 </mat-card>
 
@@ -24,17 +56,16 @@
   </mat-card-header>
   <mat-card-content>
     <!-- Search Input -->
-    <div class="search-input" style="margin-bottom: 16px;">
-      <mat-form-field appearance="outline" style="width: 100%;">
+    <div class="search-input">
+      <mat-form-field appearance="outline">
         <mat-label>Search Analyses</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Search Analyses">
       </mat-form-field>
     </div>
 
     <!-- Paginated Table -->
-    <div class="analyses-table" style="overflow-x: auto;">
-      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;">
-
+    <div class="analyses-table">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <!-- ID Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
@@ -66,7 +97,7 @@
     </div>
 
     <!-- Paginator -->
-    <div class="paginator-container" style="margin-top: 16px;">
+    <div class="paginator-container">
       <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
   </mat-card-content>
