@@ -8,5 +8,6 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'upload', component: UploadComponent },
   { path: 'patient/:patientId', component: PatientComponent },
+  { path: 'patient/:patientId/analysis/new', component: UploadComponent },
   { path: 'patient/:patientId/analysis/:analysisId', component: AnalysisComponent }
 ];

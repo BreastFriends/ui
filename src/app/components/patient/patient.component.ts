@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-patient',
@@ -24,7 +26,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule
   ],
   templateUrl: './patient.component.html',
   styleUrls: ['./patient.component.css']
@@ -79,6 +83,12 @@ export class PatientComponent implements OnInit, AfterViewInit {
   onAnalysisClick(analysis: Analysis): void {
     if (this.patient) {
       this.router.navigate(['/patient', this.patient.id, 'analysis', analysis.id]);
+    }
+  }
+
+  newAnalysis() {
+    if (this.patient && this.patient.id) {
+      this.router.navigate(['/patient', this.patient.id, 'analysis', 'new']);
     }
   }
 }
