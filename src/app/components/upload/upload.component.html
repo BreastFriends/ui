@@ -1,7 +1,13 @@
+<div class="upload-description">
+    <p>Please upload exactly 4 images: two for the left side (CC and MLO) and two for the right side (CC and MLO).</p>
+</div>
+
 <div class="upload-container">
-    <button mat-flat-button color="primary" (click)="fileInput.click()">Select Images</button>
-    <input #fileInput type="file" (change)="onFileChange($event)" multiple accept="image/*" hidden>
-    <button mat-flat-button color="accent" (click)="onSubmit()" [disabled]="files.length !== 4">Upload</button>
+    <div class="upload-buttons">
+        <button mat-flat-button color="primary" (click)="fileInput.click()">Select Images</button>
+        <input #fileInput type="file" (change)="onFileChange($event)" multiple accept="image/*" hidden>
+        <button mat-flat-button color="accent" (click)="onSubmit()" [disabled]="files.length !== 4">Upload</button>
+    </div>
 </div>
 
 <mat-card class="images-card" *ngIf="files.length">
