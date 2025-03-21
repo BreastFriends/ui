@@ -10,7 +10,6 @@
                         [src]="image.image_uri"
                         [alt]="image.view_type + ' ' + image.breast_side"
                         (click)="openImageDialog(image)"
-                        style="cursor: pointer;"
                         />
                         <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                     </div>
@@ -23,7 +22,6 @@
                         [src]="image.image_uri"
                         [alt]="image.view_type + ' ' + image.breast_side"
                         (click)="openImageDialog(image)"
-                        style="cursor: pointer;"
                         />
                         <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                     </div>

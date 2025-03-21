@@ -9,6 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 16px;
 }
 
 .image-item {
@@ -19,10 +20,13 @@
 }
 
 .image-item img {
-    width: 200px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
+    object-fit: cover;
     border: 1px solid #ccc;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .image-label {
