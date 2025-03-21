@@ -7,10 +7,10 @@
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of leftImages">
                         <img
-                            [src]="image.image_uri"
-                            [alt]="image.view_type + ' ' + image.breast_side"
-                            (click)="openImageDialog(image)"
-                            style="cursor: pointer;"
+                        [src]="image.image_uri"
+                        [alt]="image.view_type + ' ' + image.breast_side"
+                        (click)="openImageDialog(image)"
+                        style="cursor: pointer;"
                         />
                         <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                     </div>
@@ -20,10 +20,10 @@
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of rightImages">
                         <img
-                            [src]="image.image_uri"
-                            [alt]="image.view_type + ' ' + image.breast_side"
-                            (click)="openImageDialog(image)"
-                            style="cursor: pointer;"
+                        [src]="image.image_uri"
+                        [alt]="image.view_type + ' ' + image.breast_side"
+                        (click)="openImageDialog(image)"
+                        style="cursor: pointer;"
                         />
                         <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                     </div>
@@ -67,7 +67,7 @@
         </mat-card-header>
         <mat-card-content>
             <mat-form-field appearance="outline">
-                <input matInput [(ngModel)]="analysis.radiologist_birads_score" placeholder="Enter Radiologist BIRADS Score">
+                <input matInput [(ngModel)]="analysis.radiologist_birads_score" placeholder="Enter Radiologist BIRADS Score" (ngModelChange)="onRadiologistBiradsScoreChange()">
             </mat-form-field>
         </mat-card-content>
     </mat-card>
@@ -79,9 +79,11 @@
         </mat-card-header>
         <mat-card-content>
             <mat-form-field appearance="outline">
-                <textarea matInput rows="5" [(ngModel)]="analysis.notes" placeholder="Enter Doctor's Notes"></textarea>
+                <textarea matInput rows="10" [(ngModel)]="analysis.notes" placeholder="Enter Doctor's Notes"></textarea>
             </mat-form-field>
         </mat-card-content>
+        <mat-card-content>
+            <button mat-flat-button color="primary" (click)="onNotesSave()">Save Notes</button>
+        </mat-card-content>
     </mat-card>
-
 </div>

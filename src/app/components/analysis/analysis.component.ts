@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-analysis',
@@ -20,7 +21,8 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatButton
   ],
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.css']
@@ -73,5 +75,13 @@ export class AnalysisComponent implements OnInit {
       width: '90%',
       maxWidth: '800px'
     });
+  }
+
+  onRadiologistBiradsScoreChange(): void {
+    this.snackBar.open('BIRADS Score saved', 'Close', { duration: 3000 });
+  }
+
+  onNotesSave(): void {
+    this.snackBar.open("Notes saved", 'Close', { duration: 3000 });
   }
 }
