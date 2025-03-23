@@ -35,7 +35,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class PatientComponent implements OnInit, AfterViewInit {
   patient: Patient | undefined;
-  displayedColumns: string[] = ['id', 'birads_score', 'radiologist_birads_score', 'created_at'];
+  displayedColumns: string[] = ['id', 'birads_score', 'radiologist_birads_score', 'created_at', 'action'];
   dataSource: MatTableDataSource<Analysis> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

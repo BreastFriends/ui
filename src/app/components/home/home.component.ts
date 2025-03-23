@@ -28,7 +28,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['oib', 'firstName', 'lastName', 'dateOfBirth', 'email'];
+  displayedColumns: string[] = ['oib', 'firstName', 'lastName', 'dateOfBirth', 'email', 'action'];
   dataSource = new MatTableDataSource<Patient>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
