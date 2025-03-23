@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 @Component({
   selector: 'app-analysis',
@@ -22,7 +23,8 @@ import { MatButton } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButton
+    MatButton,
+    NgxImageZoomModule
   ],
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.scss']

@@ -1,10 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AnalysisImage } from '../../../services/analysis.service';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 @Component({
   selector: 'app-image-dialog',
-  imports: [],
+  imports: [NgxImageZoomModule],
   templateUrl: './image-dialog.component.html',
   styleUrl: './image-dialog.component.scss'
 })

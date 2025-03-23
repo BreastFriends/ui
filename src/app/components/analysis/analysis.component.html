@@ -6,11 +6,16 @@
             <mat-tab label="Left">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of leftImages">
-                        <img
-                        [src]="image.image_uri"
-                        [alt]="image.view_type + ' ' + image.breast_side"
-                        (click)="openImageDialog(image)"
-                        />
+                        <lib-ngx-image-zoom
+                            [thumbImage]="image.image_uri + '_thumb'"
+                            [fullImage]="image.image_uri"
+                            [circularLens]="true"
+                            [enableLens]="true"
+                            [lensHeight]="300"
+                            [lensWidth]="300"
+                            [magnification]="1.2"
+                        >
+                        </lib-ngx-image-zoom>
                         <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                     </div>
                 </div>
@@ -18,11 +23,16 @@
             <mat-tab label="Right">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of rightImages">
-                        <img
-                        [src]="image.image_uri"
-                        [alt]="image.view_type + ' ' + image.breast_side"
-                        (click)="openImageDialog(image)"
-                        />
+                        <lib-ngx-image-zoom
+                            [thumbImage]="image.image_uri + '_thumb'"
+                            [fullImage]="image.image_uri"
+                            [circularLens]="true"
+                            [enableLens]="true"
+                            [lensHeight]="300"
+                            [lensWidth]="300"
+                            [magnification]="1.2"
+                        >
+                        </lib-ngx-image-zoom>
                         <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                     </div>
                 </div>
