@@ -49,11 +49,11 @@
     <!-- Analysis Information -->
     <mat-card class="analysis-info-card">
         <mat-card-header>
-            <mat-card-title>Analysis Information</mat-card-title>
+            <mat-card-title>AI Analysis Information</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p><strong>BIRADS Score:</strong> {{ analysis.birads_score }}</p>
-            <p><strong>BIRADS Confidence:</strong> {{ analysis.birads_confidence | percent:'1.0-0' }}</p>
+            <p><strong>AI BIRADS Score:</strong> {{ analysis.birads_score }}</p>
+            <p><strong>AI BIRADS Confidence:</strong> {{ analysis.birads_confidence | percent:'1.0-0' }}</p>
             <p><strong>Created At:</strong> {{ analysis.created_at | date:'medium' }}</p>
         </mat-card-content>
     </mat-card>

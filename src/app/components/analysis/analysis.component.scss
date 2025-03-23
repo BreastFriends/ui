@@ -34,14 +34,12 @@
     font-weight: bold;
 }
 
-.lesions-section ul,
-.notes-section ul {
-    list-style: none;
-    padding: 0;
-}
+.radiologist-notes-card {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
 
-.lesions-section li,
-.notes-section li {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+    mat-form-field {
+        width: 100%;
+    }
 }
