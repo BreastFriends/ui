@@ -9,8 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-analysis',
@@ -22,8 +23,9 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButton,
-    NgxImageZoomModule
+    MatButtonModule,
+    NgxImageZoomModule,
+    MatCheckboxModule
   ],
   templateUrl: './analysis.component.html',
   styleUrls: ['./analysis.component.scss']
