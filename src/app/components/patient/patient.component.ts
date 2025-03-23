@@ -58,6 +58,7 @@ export class PatientComponent implements OnInit, AfterViewInit {
           this.patient = found;
           this.analysisService.getAnalysesByPatientId(this.patient.id).subscribe(analyses => {
             this.dataSource.data = analyses;
+            this.dataSource.sort = this.sort;
           });
         } else {
           this.snackBar.open('Patient not found', 'Close', { duration: 3000 });
