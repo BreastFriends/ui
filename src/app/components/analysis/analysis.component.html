@@ -20,6 +20,14 @@
                     </div>
                 </div>
             </mat-tab>
+            <mat-tab label="Left Heatmap">
+                <div class="images-section">
+                    <div class="image-item" *ngFor="let image of leftImages">
+                        <img [src]="image.image_uri + '_heatmap'" alt="Heatmap" />
+                        <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+                    </div>
+                </div>
+            </mat-tab>
             <mat-tab label="Right">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of rightImages">
@@ -33,6 +41,14 @@
                             [magnification]="1.2"
                         >
                         </lib-ngx-image-zoom>
+                        <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Right Heatmap">
+                <div class="images-section">
+                    <div class="image-item" *ngFor="let image of rightImages">
+                        <img [src]="image.image_uri + '_heatmap'" alt="Heatmap" />
                         <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
                     </div>
                 </div>
