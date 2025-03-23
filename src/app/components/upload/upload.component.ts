@@ -10,7 +10,7 @@ import { PatientService } from '../../services/patient.service';
   selector: 'app-upload',
   imports: [CommonModule, MatCard, MatButton],
   templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.css']
+  styleUrls: ['./upload.component.scss']
 })
 export class UploadComponent implements OnInit {
   // Store all file objects and preview URLs

@@ -6,7 +6,7 @@ import { AnalysisImage } from '../../../services/analysis.service';
   selector: 'app-image-dialog',
   imports: [],
   templateUrl: './image-dialog.component.html',
-  styleUrl: './image-dialog.component.css'
+  styleUrl: './image-dialog.component.scss'
 })
 export class ImageDialogComponent {
   zoom = 1;

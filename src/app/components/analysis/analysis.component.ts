@@ -25,7 +25,7 @@ import { MatButton } from '@angular/material/button';
     MatButton
   ],
   templateUrl: './analysis.component.html',
-  styleUrls: ['./analysis.component.css']
+  styleUrls: ['./analysis.component.scss']
 })
 export class AnalysisComponent implements OnInit {
   analysis: Analysis | undefined;

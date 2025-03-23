@@ -31,7 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule
   ],
   templateUrl: './patient.component.html',
-  styleUrls: ['./patient.component.css']
+  styleUrls: ['./patient.component.scss']
 })
 export class PatientComponent implements OnInit, AfterViewInit {
   patient: Patient | undefined;

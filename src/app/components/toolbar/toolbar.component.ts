@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-toolbar',
   imports: [RouterLink, MatToolbarModule, MatButtonModule, MatIconModule],
   templateUrl: './toolbar.component.html',
-  styleUrl: './toolbar.component.css'
+  styleUrl: './toolbar.component.scss'
 })
 export class ToolbarComponent {
   constructor() {}

@@ -25,7 +25,7 @@ import { MatTableDataSource } from '@angular/material/table';
     MatSortModule
   ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['oib', 'firstName', 'lastName', 'dateOfBirth', 'email'];
