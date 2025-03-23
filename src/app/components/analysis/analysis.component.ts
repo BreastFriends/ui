@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -69,14 +68,6 @@ export class AnalysisComponent implements OnInit {
         this.router.navigate(['/']);
       }
     }
-  }
-
-  openImageDialog(image: AnalysisImage): void {
-    this.dialog.open(ImageDialogComponent, {
-      data: image,
-      width: '90%',
-      maxWidth: '800px'
-    });
   }
 
   onRadiologistBiradsScoreChange(): void {
