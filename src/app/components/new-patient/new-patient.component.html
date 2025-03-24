@@ -4,36 +4,36 @@
     </mat-card-header>
     <mat-card-content>
         <div class="patient-details-grid">
-            <form>
+            <form #form="ngForm">
                 <mat-form-field>
                     <mat-label>First Name</mat-label>
-                    <input matInput placeholder="First Name" [(ngModel)]="patient.firstName" name="firstName">
+                    <input matInput placeholder="First Name" [(ngModel)]="patient.firstName" name="firstName" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Last Name</mat-label>
-                    <input matInput placeholder="Last Name" [(ngModel)]="patient.lastName" name="lastName">
+                    <input matInput placeholder="Last Name" [(ngModel)]="patient.lastName" name="lastName" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>OIB</mat-label>
-                    <input matInput placeholder="OIB" [(ngModel)]="patient.oib" name="oib">
+                    <input matInput placeholder="OIB" [(ngModel)]="patient.oib" name="oib" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Date of Birth</mat-label>
-                    <input matInput [matDatepicker]="picker" placeholder="Date of Birth" [(ngModel)]="patient.dateOfBirth" name="dateOfBirth">
+                    <input matInput [matDatepicker]="picker" placeholder="Date of Birth" [(ngModel)]="patient.dateOfBirth" name="dateOfBirth" required>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Address</mat-label>
-                    <input matInput placeholder="Address" [(ngModel)]="patient.address" name="address">
+                    <input matInput placeholder="Address" [(ngModel)]="patient.address" name="address" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Contact Phone</mat-label>
-                    <input matInput placeholder="Contact Phone" [(ngModel)]="patient.contactPhone" name="contactPhone">
+                    <input matInput placeholder="Contact Phone" [(ngModel)]="patient.contactPhone" name="contactPhone" required>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" [(ngModel)]="patient.email" name="email">
+                    <input matInput placeholder="Email" [(ngModel)]="patient.email" name="email" required>
                 </mat-form-field>
                 <div>
                     <mat-checkbox [(ngModel)]="patient.usesHormoneTherapy" name="usesHormoneTherapy">
@@ -56,7 +56,7 @@
                     </mat-checkbox>
                 </div>
                 <div class="button-container">
-                    <button mat-flat-button color="primary" (click)="savePatient()">Save Patient</button>
+                    <button mat-flat-button color="primary" (click)="savePatient(form)" [disabled]="!form.valid">Save Patient</button>
                 </div>
             </form>
         </div>

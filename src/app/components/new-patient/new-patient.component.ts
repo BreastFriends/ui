@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -56,10 +56,16 @@ export class NewPatientComponent {
 
   constructor(private snackBar: MatSnackBar, private router: Router) {}
 
-  savePatient() {
-    this.snackBar.open('Patient saved successfully', 'Close', {
-      duration: 3000
-    });
-    this.router.navigate(['/']);
+  savePatient(form: NgForm) {
+    if (form.valid) {
+      this.snackBar.open('Patient saved successfully', 'Close', {
+        duration: 3000
+      });
+      this.router.navigate(['/']);
+    } else {
+      this.snackBar.open('Please fill out all required fields', 'Close', {
+        duration: 3000
+      });
+    }
   }
 }
