@@ -60,7 +60,6 @@ export class PatientComponent implements OnInit, AfterViewInit {
           this.patient = found;
           this.analysisService.getAnalysesByPatientId(this.patient.id).subscribe(analyses => {
             this.dataSource.data = analyses;
-            console.log(this.dataSource.data);
             this.dataSource.sort = this.sort;
           });
         } else {

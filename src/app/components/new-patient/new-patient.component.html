@@ -1,70 +1,63 @@
 <mat-card class="patient-card">
     <mat-card-header>
-        <mat-card-title>New Patient Details</mat-card-title>
+        <mat-card-title>New Patient</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <div class="patient-details-grid">
             <form>
-                <div class="patient-detail">
-                    <span class="label">Name</span>
-                    <mat-form-field>
-                        <input matInput placeholder="First Name" [(ngModel)]="patient.firstName" name="firstName">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input matInput placeholder="Last Name" [(ngModel)]="patient.lastName" name="lastName">
-                    </mat-form-field>
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" [(ngModel)]="patient.firstName" name="firstName">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" [(ngModel)]="patient.lastName" name="lastName">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>OIB</mat-label>
+                    <input matInput placeholder="OIB" [(ngModel)]="patient.oib" name="oib">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" placeholder="Date of Birth" [(ngModel)]="patient.dateOfBirth" name="dateOfBirth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Address" [(ngModel)]="patient.address" name="address">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Contact Phone</mat-label>
+                    <input matInput placeholder="Contact Phone" [(ngModel)]="patient.contactPhone" name="contactPhone">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" [(ngModel)]="patient.email" name="email">
+                </mat-form-field>
+                <div>
+                    <mat-checkbox [(ngModel)]="patient.usesHormoneTherapy" name="usesHormoneTherapy">
+                        <mat-label>Uses Hormone Therapy</mat-label>
+                    </mat-checkbox>
                 </div>
-                <div class="patient-detail">
-                    <span class="label">OIB</span>
-                    <mat-form-field>
-                        <input matInput placeholder="OIB" [(ngModel)]="patient.oib" name="oib">
-                    </mat-form-field>
+                <div>
+                    <mat-checkbox [(ngModel)]="patient.hasFamilyHistoryOfCancer" name="hasFamilyHistoryOfCancer">
+                        <mat-label>Family History of Cancer</mat-label>
+                    </mat-checkbox>
                 </div>
-                <div class="patient-detail">
-                    <span class="label">Date of Birth</span>
-                    <mat-form-field>
-                        <input matInput [matDatepicker]="picker" placeholder="Date of Birth" [(ngModel)]="patient.dateOfBirth" name="dateOfBirth">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
+                <div>
+                    <mat-checkbox [(ngModel)]="patient.hasHadCancer" name="hasHadCancer">
+                        <mat-label>Had Cancer</mat-label>
+                    </mat-checkbox>
                 </div>
-                <div class="patient-detail">
-                    <span class="label">Address</span>
-                    <mat-form-field>
-                        <input matInput placeholder="Address" [(ngModel)]="patient.address" name="address">
-                    </mat-form-field>
+                <div>
+                    <mat-checkbox [(ngModel)]="patient.isInMenopause" name="isInMenopause">
+                        <mat-label>In Menopause</mat-label>
+                    </mat-checkbox>
                 </div>
-                <div class="patient-detail">
-                    <span class="label">Contact Phone</span>
-                    <mat-form-field>
-                        <input matInput placeholder="Contact Phone" [(ngModel)]="patient.contactPhone" name="contactPhone">
-                    </mat-form-field>
+                <div class="button-container">
+                    <button mat-flat-button color="primary" (click)="savePatient()">Save Patient</button>
                 </div>
-                <div class="patient-detail">
-                    <span class="label">Email</span>
-                    <mat-form-field>
-                        <input matInput placeholder="Email" [(ngModel)]="patient.email" name="email">
-                    </mat-form-field>
-                </div>
-                <div class="patient-detail">
-                    <span class="label">Uses Hormone Therapy</span>
-                    <mat-checkbox [(ngModel)]="patient.usesHormoneTherapy" name="usesHormoneTherapy">Yes</mat-checkbox>
-                </div>
-                <div class="patient-detail">
-                    <span class="label">Family History of Cancer</span>
-                    <mat-checkbox [(ngModel)]="patient.hasFamilyHistoryOfCancer" name="hasFamilyHistoryOfCancer">Yes</mat-checkbox>
-                </div>
-                <div class="patient-detail">
-                    <span class="label">Had Cancer</span>
-                    <mat-checkbox [(ngModel)]="patient.hasHadCancer" name="hasHadCancer">Yes</mat-checkbox>
-                </div>
-                <div class="patient-detail">
-                    <span class="label">In Menopause</span>
-                    <mat-checkbox [(ngModel)]="patient.isInMenopause" name="isInMenopause">Yes</mat-checkbox>
-                </div>
-
-                <button mat-flat-button color="primary" (click)="savePatient()">Save Patient</button>
-
             </form>
         </div>
     </mat-card-content>
