@@ -20,6 +20,23 @@
                     </div>
                 </div>
             </mat-tab>
+            <mat-tab label="Left Localization">
+                <div class="images-section">
+                    <div class="image-item" *ngFor="let image of leftImages">
+                        <lib-ngx-image-zoom
+                            [thumbImage]="image.image_uri + '_with_boxes_thumb'"
+                            [fullImage]="image.image_uri + '_with_boxes'"
+                            [circularLens]="true"
+                            [enableLens]="true"
+                            [lensHeight]="300"
+                            [lensWidth]="300"
+                            [magnification]="1.2"
+                        >
+                        </lib-ngx-image-zoom>
+                        <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+                    </div>
+                </div>
+            </mat-tab>
             <mat-tab label="Left Heatmap">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of leftImages">
@@ -34,6 +51,23 @@
                         <lib-ngx-image-zoom
                             [thumbImage]="image.image_uri + '_thumb'"
                             [fullImage]="image.image_uri"
+                            [circularLens]="true"
+                            [enableLens]="true"
+                            [lensHeight]="300"
+                            [lensWidth]="300"
+                            [magnification]="1.2"
+                        >
+                        </lib-ngx-image-zoom>
+                        <div class="image-label">{{ image.breast_side }}_{{ image.view_type }}</div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Right Localization">
+                <div class="images-section">
+                    <div class="image-item" *ngFor="let image of rightImages">
+                        <lib-ngx-image-zoom
+                            [thumbImage]="image.image_uri + '_with_boxes_thumb'"
+                            [fullImage]="image.image_uri + '_with_boxes'"
                             [circularLens]="true"
                             [enableLens]="true"
                             [lensHeight]="300"
