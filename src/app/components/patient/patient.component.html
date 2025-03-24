@@ -97,7 +97,14 @@
                 <ng-container matColumnDef="action">
                     <th mat-header-cell *matHeaderCellDef> Action </th>
                     <td mat-cell *matCellDef="let element">
-                        <button mat-flat-button color="primary" (click)="onAnalysisClick(element); $event.stopPropagation()">View Details</button>
+                        <ng-container *ngIf="element.duration_time_ms === 0; else showButton">
+                            <mat-spinner diameter="34"></mat-spinner>
+                        </ng-container>
+                        <ng-template #showButton>
+                            <button mat-flat-button color="primary" (click)="onAnalysisClick(element); $event.stopPropagation()">
+                                View Details
+                            </button>
+                        </ng-template>
                     </td>
                 </ng-container>
 

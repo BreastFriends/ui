@@ -59,6 +59,23 @@ export class AnalysisService {
   // Dummy placeholder data using the new schema.
   private dummyAnalyses: Analysis[] = [
     {
+      id: "f3i72f392eq03dk6f62ksd567sd32400f",
+      patientId: "1",
+      started_at: new Date("2025-03-25T10:00:00"),
+      finished_at: new Date("1970-01-01T00:00:00"),
+      duration_time_ms: 0,
+      birads_model_version_id: "v1.0",
+      lesion_model_version_id: "v1.0",
+      birads_score: 0,
+      birads_confidence: 0.0,
+      radiologist_reviewed: false,
+      radiologist_birads_score: 0,
+      notes: "Analysis from CSV data (findings detected)",
+      created_at: new Date("2025-03-23T10:05:00"),
+      images: [],
+      lesions: []
+    },
+    {
       id: "9cd11142270fc4e1188ccc8b02d23322",
       patientId: "1",
       started_at: new Date("2025-03-23T10:00:00"),

@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-patient',
@@ -28,7 +29,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './patient.component.html',
   styleUrls: ['./patient.component.scss']
@@ -58,6 +60,7 @@ export class PatientComponent implements OnInit, AfterViewInit {
           this.patient = found;
           this.analysisService.getAnalysesByPatientId(this.patient.id).subscribe(analyses => {
             this.dataSource.data = analyses;
+            console.log(this.dataSource.data);
             this.dataSource.sort = this.sort;
           });
         } else {
@@ -82,7 +85,7 @@ export class PatientComponent implements OnInit, AfterViewInit {
   }
 
   onAnalysisClick(analysis: Analysis): void {
-    if (this.patient) {
+    if (this.patient && analysis.duration_time_ms !== 0) {
       this.router.navigate(['/patient', this.patient.id, 'analysis', analysis.id]);
     }
   }
