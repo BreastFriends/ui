@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { PatientService, Patient } from '../../services/patient.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -22,7 +22,8 @@ import { MatTableDataSource } from '@angular/material/table';
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
-    MatSortModule
+    MatSortModule,
+    RouterModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
