@@ -100,7 +100,7 @@
                 <li *ngFor="let lesion of analysis.lesions" style="display: flex; align-items: center; justify-content: space-between;">
                     <div>
                         <strong>{{ lesion.lesion_type }}</strong>
-                        ({{ lesion.confidence * 100 | number:'1.0-0' }}% confidence) –
+                        –
                         Dimensions: {{ lesion.width_mm }}mm x {{ lesion.height_mm }}mm, Area: {{ lesion.area_pixels }} pixels.
                     </div>
                     <mat-checkbox [(ngModel)]="lesion.radiologist_confirmed" [ngModelOptions]="{standalone: true}">Verified</mat-checkbox>
