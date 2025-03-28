@@ -1,6 +1,10 @@
 <mat-card class="patient-card" *ngIf="patient">
     <mat-card-header>
         <mat-card-title>Patient Details</mat-card-title>
+        <!-- Tooltip for Patient Details -->
+        <span matTooltip="View detailed information about the patient.">
+            <mat-icon class="info-icon">info</mat-icon>
+        </span>
     </mat-card-header>
     <mat-card-content>
         <div class="patient-details-grid">
@@ -52,17 +56,21 @@
 <mat-card class="analyses-card">
     <mat-card-header>
         <mat-card-title>Analyses</mat-card-title>
+        <!-- Tooltip for Analyses Section -->
+        <span matTooltip="View and manage analyses for the selected patient.">
+            <mat-icon class="info-icon">info</mat-icon>
+        </span>
     </mat-card-header>
     <mat-card-content>
         <!-- New Analysis Button -->
-        <button mat-flat-button class="new-analysis" (click)="newAnalysis()">
+        <button mat-flat-button class="new-analysis" (click)="newAnalysis()" matTooltip="Start a new analysis for this patient.">
             <span>New Analysis</span>
         </button>
         <!-- Search Input -->
         <div class="search-input">
             <mat-form-field appearance="outline">
                 <mat-label>Search Analyses</mat-label>
-                <input matInput (keyup)="applyFilter($event)" placeholder="Search Analyses">
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search Analyses" matTooltip="Search analyses by their details.">
             </mat-form-field>
         </div>
 
@@ -71,37 +79,46 @@
             <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
                 <!-- ID Column -->
                 <ng-container matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Unique identifier for the analysis."> ID </th>
                     <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
                 </ng-container>
 
                 <!-- BIRADS Score Column -->
                 <ng-container matColumnDef="birads_score">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> BIRADS Score </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="BIRADS score assigned by the system."> BIRADS Score </th>
                     <td mat-cell *matCellDef="let element"> {{ element.birads_score }} </td>
                 </ng-container>
 
                 <!-- Radiologist BIRADS Score Column -->
                 <ng-container matColumnDef="radiologist_birads_score">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Radiologist BIRADS Score </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="BIRADS score assigned by the radiologist."> Radiologist BIRADS Score </th>
                     <td mat-cell *matCellDef="let element"> {{ element.radiologist_birads_score }} </td>
+                </ng-container>
+
+                <!-- Confidence Column -->
+                <ng-container matColumnDef="birads_confidence">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Confidence level of the BIRADS score."> Confidence </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.birads_confidence }} </td>
                 </ng-container>
 
                 <!-- Created At Column -->
                 <ng-container matColumnDef="created_at">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Created At </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Date and time when the analysis was created."> Created At </th>
                     <td mat-cell *matCellDef="let element"> {{ element.created_at | date:'medium' }} </td>
                 </ng-container>
 
                 <!-- Action Column -->
                 <ng-container matColumnDef="action">
-                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <th mat-header-cell *matHeaderCellDef matTooltip="Actions available for this analysis."> Action </th>
                     <td mat-cell *matCellDef="let element">
                         <ng-container *ngIf="element.duration_time_ms === 0; else showButton">
-                            <mat-spinner diameter="34"></mat-spinner>
+                            <div class="in-progress-container">
+                                <mat-spinner diameter="34" matTooltip="Analysis is still in progress."></mat-spinner>
+                                <span class="in-progress-label">In Progress</span>
+                            </div>
                         </ng-container>
                         <ng-template #showButton>
-                            <button mat-flat-button color="primary" (click)="onAnalysisClick(element); $event.stopPropagation()">
+                            <button mat-flat-button color="primary" (click)="onAnalysisClick(element); $event.stopPropagation()" matTooltip="View details of this analysis.">
                                 View
                             </button>
                         </ng-template>
@@ -110,13 +127,16 @@
 
                 <!-- Header and Row Declarations -->
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onAnalysisClick(row)"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    [matTooltip]="row.duration_time_ms === 0 ? null : 'Click to view analysis details.'"
+                    (click)="onAnalysisClick(row)">
+                </tr>
             </table>
         </div>
 
         <!-- Paginator -->
         <div class="paginator-container">
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons matTooltip="Use the paginator to navigate through the analyses."></mat-paginator>
         </div>
     </mat-card-content>
 </mat-card>

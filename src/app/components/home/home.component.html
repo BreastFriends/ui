@@ -1,6 +1,15 @@
 <mat-card class="home-card">
+    <!-- App Name and Description Section -->
+    <div class="app-info">
+        <h1>Breast Friends</h1>
+        <p>A powerful tool designed to support radiologists in analyzing mammograms. With AI-driven lesion detection, localization, and BIRADS classification, it enhances accuracy and efficiency in diagnostics.</p>
+    </div>
     <mat-card-header>
         <mat-card-title>Patients</mat-card-title>
+        <!-- Tooltip for the Patients Section -->
+        <span matTooltip="Manage patient records: search, view, and add new patients.">
+            <mat-icon class="info-icon">info</mat-icon>
+        </span>
     </mat-card-header>
     <mat-card-actions>
         <button mat-flat-button color="primary" routerLink="/patient/new">Add New Patient</button>
@@ -12,12 +21,19 @@
                 <mat-label>Search patients</mat-label>
                 <input matInput (keyup)="applyFilter($event)" placeholder="Search patients">
             </mat-form-field>
+            <!-- Tooltip for the Search Input -->
+            <span matTooltip="Search patients by their details." class="info-icon">
+                <mat-icon>info</mat-icon>
+            </span>
         </div>
 
         <!-- Patients Table Section -->
         <div class="table-container" style="overflow-x: auto;">
+            <!-- Tooltip for the Patients Table -->
+            <span matTooltip="Click on a row to view more information about the patient." class="info-icon">
+                <mat-icon>info</mat-icon>
+            </span>
             <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;">
-
                 <!-- OIB Column -->
                 <ng-container matColumnDef="oib">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> OIB </th>
@@ -64,5 +80,9 @@
     </mat-card-content>
     <mat-card-actions>
         <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+        <!-- Tooltip for the Paginator -->
+        <span matTooltip="Use the paginator to navigate through the list of patients." class="info-icon">
+            <mat-icon>info</mat-icon>
+        </span>
     </mat-card-actions>
 </mat-card>

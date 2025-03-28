@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.description {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 8px;
+    display: block;
+    text-align: left;
+}
+
+.info-icon {
+    font-size: 16px;
+    color: #6c757d;
+    margin-left: 8px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.hint {
+    font-size: 0.75rem;
+    color: #6c757d;
+    display: block;
+    margin-top: 4px;
+    text-align: left;
+}

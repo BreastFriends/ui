@@ -33,3 +33,25 @@
 .mat-mdc-row:hover .mat-mdc-cell {
     background-color: rgba(224, 121, 135, 0.15);
 }
+
+.app-info {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff5f7; // Softer rose-red background
+    border-radius: 8px;
+    border: 1px solid #f8bbd0; // Light rose-red border
+
+    h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: #c2185b; // Rose-red primary color
+        font-weight: 500;
+    }
+
+    p {
+        margin: 10px 0 0;
+        font-size: 1.1rem;
+        color: #ad1457; // Slightly darker rose-red for text
+        line-height: 1.6;
+    }
+}

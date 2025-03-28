@@ -3,7 +3,7 @@
     <!-- Images in Tabs -->
     <mat-card class="images-card">
         <mat-tab-group>
-            <mat-tab label="Left">
+            <mat-tab label="Left" matTooltip="View images of the left breast.">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of leftImages">
                         <lib-ngx-image-zoom
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Left Localization">
+            <mat-tab label="Left Localization" matTooltip="View localized images of the left breast.">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of leftImages">
                         <lib-ngx-image-zoom
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Left Heatmap">
+            <mat-tab label="Left Heatmap" matTooltip="View heatmap images of the left breast.">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of leftImages">
                         <img [src]="image.image_uri + '_heatmap'" alt="Heatmap" />
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Right">
+            <mat-tab label="Right" matTooltip="View images of the right breast.">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of rightImages">
                         <lib-ngx-image-zoom
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Right Localization">
+            <mat-tab label="Right Localization" matTooltip="View localized images of the right breast.">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of rightImages">
                         <lib-ngx-image-zoom
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="Right Heatmap">
+            <mat-tab label="Right Heatmap" matTooltip="View heatmap images of the right breast.">
                 <div class="images-section">
                     <div class="image-item" *ngFor="let image of rightImages">
                         <img [src]="image.image_uri + '_heatmap'" alt="Heatmap" />
@@ -94,6 +94,9 @@
     <mat-card class="lesions-card" *ngIf="analysis.lesions && analysis.lesions.length">
         <mat-card-header>
             <mat-card-title>Detected Lesions</mat-card-title>
+            <span matTooltip="List of lesions detected by the AI.">
+                <mat-icon class="info-icon">info</mat-icon>
+            </span>
         </mat-card-header>
         <mat-card-content>
             <ul>
@@ -112,6 +115,9 @@
     <mat-card class="analysis-info-card">
         <mat-card-header>
             <mat-card-title>AI Analysis Information</mat-card-title>
+            <span matTooltip="Details of the AI-generated analysis.">
+                <mat-icon class="info-icon">info</mat-icon>
+            </span>
         </mat-card-header>
         <mat-card-content>
             <p><strong>AI BIRADS Score:</strong> {{ analysis.birads_score }}</p>
@@ -124,6 +130,9 @@
     <mat-card class="radiologist-birads-card">
         <mat-card-header>
             <mat-card-title>Radiologist BIRADS Score</mat-card-title>
+            <span matTooltip="Enter the radiologist's BIRADS score for this analysis.">
+                <mat-icon class="info-icon">info</mat-icon>
+            </span>
         </mat-card-header>
         <mat-card-content>
             <mat-form-field appearance="outline">
@@ -136,6 +145,9 @@
     <mat-card class="radiologist-notes-card">
         <mat-card-header>
             <mat-card-title>Doctor's Notes</mat-card-title>
+            <span matTooltip="Add or edit notes for this analysis.">
+                <mat-icon class="info-icon">info</mat-icon>
+            </span>
         </mat-card-header>
         <mat-card-content>
             <mat-form-field appearance="outline">

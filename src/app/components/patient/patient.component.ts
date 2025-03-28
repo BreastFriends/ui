@@ -17,6 +17,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-patient',
@@ -30,14 +31,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTooltipModule
   ],
   templateUrl: './patient.component.html',
   styleUrls: ['./patient.component.scss']
 })
 export class PatientComponent implements OnInit, AfterViewInit {
   patient: Patient | undefined;
-  displayedColumns: string[] = ['id', 'birads_score', 'radiologist_birads_score', 'created_at', 'action'];
+  displayedColumns: string[] = ['id', 'birads_score', 'radiologist_birads_score', 'birads_confidence', 'created_at', 'action'];
   dataSource: MatTableDataSource<Analysis> = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

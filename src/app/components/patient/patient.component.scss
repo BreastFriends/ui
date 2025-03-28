@@ -86,3 +86,14 @@
 .mat-spinner {
   margin-right: 8px;
 }
+
+.in-progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.in-progress-label {
+  font-size: 14px;
+  color: #757575;
+}

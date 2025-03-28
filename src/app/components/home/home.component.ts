@@ -10,6 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +25,9 @@ import { MatTableDataSource } from '@angular/material/table';
     MatButtonModule,
     MatCardModule,
     MatSortModule,
-    RouterModule
+    RouterModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
