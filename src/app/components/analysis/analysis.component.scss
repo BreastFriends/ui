@@ -31,6 +31,12 @@
     color: #555;
 }
 
+.radiologist-birads-card {
+    mat-form-field {
+        margin-top: 24px;
+    }
+}
+
 .radiologist-notes-card {
     text-align: center;
 
