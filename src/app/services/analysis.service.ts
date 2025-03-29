@@ -70,7 +70,7 @@ export class AnalysisService {
       birads_confidence: 0.0,
       radiologist_reviewed: false,
       radiologist_birads_score: 0,
-      notes: "Analysis from CSV data (findings detected)",
+      notes: "Initial findings indicate no significant abnormalities. Follow-up recommended in 6 months.",
       created_at: new Date("2025-03-23T10:05:00"),
       images: [],
       lesions: []
@@ -87,7 +87,7 @@ export class AnalysisService {
       birads_confidence: 0.9,
       radiologist_reviewed: false,
       radiologist_birads_score: 0,
-      notes: "Analysis from CSV data (findings detected)",
+      notes: "Multiple masses detected in the right breast. Recommend biopsy for further evaluation.",
       created_at: new Date("2025-03-23T10:05:00"),
       images: [
         {
@@ -226,7 +226,7 @@ export class AnalysisService {
       birads_confidence: 0.9,
       radiologist_reviewed: false,
       radiologist_birads_score: 0,
-      notes: "Combined CSV and folder data (findings detected)",
+      notes: "Architectural distortion observed in the left breast. Suggest MRI for further assessment.",
       created_at: new Date("2025-03-23T10:15:00"),
       images: [
         {
@@ -337,7 +337,7 @@ export class AnalysisService {
       birads_confidence: 0.9,
       radiologist_reviewed: false,
       radiologist_birads_score: 0,
-      notes: "Merged CSV and folder structure data (all rows indicate 'No Finding')",
+      notes: "No significant findings. Patient history suggests routine annual screening.",
       created_at: new Date("2025-03-23T11:05:00"),
       images: [
         {
@@ -419,7 +419,7 @@ export class AnalysisService {
       birads_confidence: 0.9,
       radiologist_reviewed: false,
       radiologist_birads_score: 0,
-      notes: "Merged CSV and folder structure data (findings detected)",
+      notes: "Masses detected in both breasts. Recommend immediate consultation with an oncologist.",
       created_at: new Date("2025-03-23T11:15:00"),
       images: [
         {
@@ -558,7 +558,7 @@ export class AnalysisService {
       birads_confidence: 0.9,
       radiologist_reviewed: false,
       radiologist_birads_score: 0,
-      notes: "Merged CSV and folder structure data (findings detected)",
+      notes: "Suspicious mass in the left breast. Suggest ultrasound-guided biopsy.",
       created_at: new Date("2025-03-23T11:25:00"),
       images: [
         {
