@@ -32,9 +32,34 @@
 .upload-description {
     text-align: center;
     margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.5;
+
+    ul {
+        list-style-type: disc;
+        margin: 16px auto; /* Center the list horizontally */
+        padding-left: 20px;
+        text-align: left; /* Keep the text aligned to the left for readability */
+        max-width: 600px; /* Limit the width for better alignment */
+    }
 }
+
+.upload-description h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: var(--mat-primary); /* Use Material theme primary color */
+}
+
 .upload-buttons {
     display: flex;
     gap: 16px;
     justify-content: center;
+}
+
+.upload-description-card {
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

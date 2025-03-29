@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px;
 }
 
 .images-section {
@@ -16,31 +15,48 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
     max-width: 600px;
 }
 
 .image-item img {
     width: 100%;
-    max-width: 500px;
     height: auto;
-    object-fit: cover;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .image-label {
-    margin-top: 5px;
-    font-weight: bold;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
 }
 
 .radiologist-notes-card {
-    margin: 0 auto;
-    width: 100%;
     text-align: center;
 
     mat-form-field {
         width: 100%;
     }
+}
+
+.image-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+mat-card {
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--mat-primary);
 }

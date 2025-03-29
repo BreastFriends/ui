@@ -54,38 +54,38 @@ export class UploadComponent implements OnInit {
 
     // Process each selected file
     for (let i = 0; i < selectedFiles.length; i++) {
-      const file = selectedFiles[i];
-      const fileObj = {
-        file: file,
-        name: file.name,
-        previewUrl: URL.createObjectURL(file)
-      };
+        const file = selectedFiles[i];
+        const fileObj = {
+            file: file,
+            name: file.name,
+            previewUrl: URL.createObjectURL(file)
+        };
 
-      this.files.push(fileObj);
+        this.files.push(fileObj);
 
-      // Example filename: 1_MG_L_ML_ANON.jpg
-      const parts = file.name.toUpperCase().split('_');
-      if (parts.length >= 4) {
-        // parts[2] is side (L or R), parts[3] is view (CC or ML)
-        const side = parts[2];
-        const view = parts[3];
+        const filename = file.name.toUpperCase();
 
-        if (side === 'L') {
-          if (view === 'CC') {
-            this.leftCC.push(fileObj);
-          } else if (view === 'ML') {
-            this.leftMLO.push(fileObj);
-          }
-        } else if (side === 'R') {
-          if (view === 'CC') {
-            this.rightCC.push(fileObj);
-          } else if (view === 'ML') {
-            this.rightMLO.push(fileObj);
-          }
+        // Check for side and view dynamically
+        const isLeft = filename.includes('_L_');
+        const isRight = filename.includes('_R_');
+        const isCC = filename.includes('CC');
+        const isMLO = filename.includes('MLO') || filename.includes('ML');
+
+        if (isLeft) {
+            if (isCC) {
+                this.leftCC.push(fileObj);
+            } else if (isMLO) {
+                this.leftMLO.push(fileObj);
+            }
+        } else if (isRight) {
+            if (isCC) {
+                this.rightCC.push(fileObj);
+            } else if (isMLO) {
+                this.rightMLO.push(fileObj);
+            }
         }
-      }
     }
-  }
+}
 
   onSubmit() {
     if (this.files.length !== 4) {
