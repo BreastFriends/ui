@@ -1,10 +1,22 @@
 <mat-toolbar color="primary">
-    <button mat-button routerLink="/home" class="app-name-button">Breast Friends UI</button>
-    <button mat-icon-button (click)="goBack()">
+    <button mat-button routerLink="/home" class="app-name-button">
+        <mat-icon>home</mat-icon> <!-- Add home icon -->
+        Breast Friends UI
+    </button>
+    <button mat-icon-button matTooltip="Go Back" (click)="goBack()">
         <mat-icon>arrow_back</mat-icon>
     </button>
-    <button mat-icon-button (click)="goForward()">
+    <button mat-icon-button matTooltip="Go Forward" (click)="goForward()">
         <mat-icon>arrow_forward</mat-icon>
     </button>
     <span class="spacer"></span>
+    <div *ngIf="isLoggedIn()" class="logged-in-user-container">
+        <button mat-button color="primary" class="logged-in-user-button">
+            <mat-icon>account_circle</mat-icon>
+            {{ getLoggedInUser() }}
+        </button>
+        <div class="dropdown-menu">
+            <button (click)="logout()">Logout</button>
+        </div>
+    </div>
 </mat-toolbar>
