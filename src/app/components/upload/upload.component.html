@@ -19,7 +19,7 @@
     <div class="upload-buttons">
         <button mat-flat-button color="primary" (click)="fileInput.click()">Select Images</button>
         <input #fileInput type="file" (change)="onFileChange($event)" multiple accept="image/*" hidden>
-        <button mat-flat-button color="accent" (click)="onSubmit()" [disabled]="files.length !== 4">Upload</button>
+        <button mat-flat-button color="accent" (click)="onSubmit()" [disabled]="files.length !== 4">Start Analysis</button>
     </div>
 </div>
 

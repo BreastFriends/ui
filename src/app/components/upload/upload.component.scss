@@ -1,17 +1,17 @@
 .image-list {
     display: flex;
     flex-direction: row;
-    align-items: flex-start; /* Align items to the top */
-    gap: 24px; /* Increase gap for better spacing */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    justify-content: center; /* Center the images horizontally */
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .image-item {
     text-align: center;
-    flex: 1 1 calc(25% - 24px); /* Adjust to fit 4 images per row */
-    max-width: 500px; /* Increase the size for consistent image previews */
-    margin-bottom: 24px; /* Add more spacing between rows */
+    flex: 1 1 calc(25% - 24px);
+    max-width: 500px;
+    margin-bottom: 24px;
 }
 
 .upload-container {
@@ -20,23 +20,23 @@
     margin-bottom: 16px;
     text-align: center;
     justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
 .images-card {
     margin-top: 16px;
     padding: 16px;
-    max-width: 1200px; /* Limit the width for larger screens */
+    max-width: 1200px;
     margin-left: auto;
-    margin-right: auto; /* Center the card horizontally */
+    margin-right: auto;
 }
 
 .image-item img {
     width: 100%;
     height: auto;
     max-width: 100%;
-    border-radius: 8px; /* Add rounded corners for better aesthetics */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Enhance the shadow for better visibility */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .upload-description {
@@ -44,21 +44,21 @@
     margin-bottom: 16px;
     font-size: 16px;
     line-height: 1.5;
-    max-width: 800px; /* Limit the width for larger screens */
+    max-width: 800px;
     margin-left: auto;
-    margin-right: auto; /* Center the description horizontally */
+    margin-right: auto;
 
     ul {
         list-style-type: disc;
-        margin: 16px auto; /* Center the list horizontally */
+        margin: 16px auto;
         padding-left: 20px;
-        text-align: left; /* Keep the text aligned to the left for readability */
-        max-width: 600px; /* Limit the width for better alignment */
+        text-align: left;
+        max-width: 600px;
     }
 
     p {
-        max-width: 600px; /* Limit the width for better alignment */
-        margin: 0 auto; /* Center the paragraph horizontally */
+        max-width: 600px;
+        margin: 0 auto;
     }
 }
 
@@ -66,14 +66,14 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 16px;
-    color: var(--mat-primary); /* Use Material theme primary color */
+    color: var(--mat-primary);
 }
 
 .upload-buttons {
     display: flex;
     gap: 16px;
     justify-content: center;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
 .upload-description-card {
@@ -82,41 +82,40 @@
     padding: 16px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 800px; /* Limit the width for larger screens */
+    max-width: 800px;
     margin-left: auto;
-    margin-right: auto; /* Center the card horizontally */
+    margin-right: auto;
 }
 
 .image-label {
-    margin-top: 8px; /* Add spacing between the image and label */
-    font-size: 16px; /* Increase font size for better readability */
+    margin-top: 8px;
+    font-size: 16px;
     font-weight: bold;
-    color: #333; /* Use a darker color for better contrast */
+    color: #333;
 }
 
 .image-row {
-    margin-bottom: 32px; /* Add spacing between sections */
-    text-align: center; /* Center-align the titles */
+    margin-bottom: 32px;
+    text-align: center;
 }
 
 .image-row h2 {
-    font-size: 20px; /* Increase font size for better visibility */
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 16px; /* Add spacing between the title and images */
-    color: var(--mat-primary); /* Use Material theme primary color */
+    margin-bottom: 16px;
+    color: var(--mat-primary);
 }
 
-/* Add responsiveness for smaller screens */
 @media (max-width: 768px) {
     .image-item {
-        flex: 1 1 100%; /* Make items take full width on small screens */
+        flex: 1 1 100%;
     }
 
     .upload-description {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 14px;
     }
 
     .upload-buttons {
-        gap: 8px; /* Reduce gap between buttons */
+        gap: 8px;
     }
 }
